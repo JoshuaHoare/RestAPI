@@ -46,7 +46,7 @@ public class CoordinateData : MonoBehaviour
             Vector3 projectedPosition = Vector3.Lerp(transform.position + (-transform.up * radius), transform.position + (transform.up * radius), Mathf.InverseLerp(-1, 1, dotProductY));
             longitude = Vector3.SignedAngle((selectionPoint.position - projectedPosition), transform.right, transform.up);
 
-            Logic.instance.UpdateLocation(longitude, latitude);
+            Logic.instance.UpdateGeographicLocation(longitude, latitude);
         }
     }
 
