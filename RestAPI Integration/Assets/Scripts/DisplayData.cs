@@ -16,6 +16,6 @@ public class DisplayData : MonoBehaviour
     void UpdateData(float _longitude, float _latitude)
     {
         longitudeDisplay.text = "Longitude: " + Mathf.Abs(_longitude).ToString() + "° " + (_longitude < 0 ? "W" : "E");
-        latitudeDisplay.text = "Latitude: " + Mathf.Abs(_latitude).ToString() + "° " + (_latitude < 0 ? "N" : "S");
+        latitudeDisplay.text = "Latitude: " + Mathf.Abs(_latitude).ToString() + "° " + (_latitude > 0 ? "N" : "S");
     }
 }

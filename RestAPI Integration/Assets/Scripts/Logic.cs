@@ -10,7 +10,8 @@ public class Logic : MonoBehaviour
     [SerializeField] float geographicLongitude;
     [SerializeField] float geographicLatitude;
 
-    [Header("International Space Station")] [Space(5)]
+    [Header("International Space Station")][Space(5)]
+    [SerializeField] bool track;
     [SerializeField] float stationLongitude;
     [SerializeField] float stationLatitude;
 
@@ -22,6 +23,7 @@ public class Logic : MonoBehaviour
             instance = this;
 
         StartCoroutine(TrackSpaceStation());
+
     }
 
     #region Geographic Location Tracking
@@ -47,11 +49,10 @@ public class Logic : MonoBehaviour
     IEnumerator TrackSpaceStation()
     {
         yield return new WaitForEndOfFrame();
-
         while (true)
         {
             APIRequest.instance.APICall(ApiResponse);
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(.5f);
         }
     }
 
@@ -61,6 +62,11 @@ public class Logic : MonoBehaviour
         {
             stationLongitude = float.Parse(result.iss_position.longitude);
             stationLatitude = float.Parse(result.iss_position.latitude);
+
+            if (track)
+                CoordinateData.instance.UpdateSpaceStation(new Vector2(stationLongitude, stationLatitude));
+            else
+                CoordinateData.instance.UpdateSpaceStation(new Vector2(geographicLongitude, geographicLatitude));
         }
         else
             Debug.LogWarning("Failed to recieve a valid api response");

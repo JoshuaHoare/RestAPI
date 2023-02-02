@@ -1,0 +1,27 @@
+{
+    "Name": "Val",
+    "Age": 22,
+    "Gender": "male",
+    "Personality": {
+        "Introverted": 6,
+        "Extroverted": 3,
+        "Creative": 10,
+        "Logical": 10,
+        "Caring": 5,
+        "Assertive": 6
+    },
+    "Life": {
+        "Education": "good",
+        "Career": "part time",
+        "Goals": "mutual destruction",
+        "Hobbies": "blowing things up"
+    },
+    "Skills": {
+        "Intelligence": 10,
+        "Wisdom": 8,
+        "Dexterity": 5,
+        "Strength": 3,
+        "Constitution": 8,
+        "Charisma": 5
+    }
+}
